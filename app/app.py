@@ -165,7 +165,7 @@ if model.find("Indonesian Literature") != -1:
 elif model == "Indonesian Persona Chatbot":
     st.subheader("Indonesian GPT-2 Persona Chatbot")
     STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / 'static'
-    st.write("static dir: " + STREAMLIT_STATIC_PATH)
+    st.write(STREAMLIT_STATIC_PATH)
     # We create a videos directory within the streamlit static asset directory
     # and we write output files to it
     ASSETS_PATH = STREAMLIT_STATIC_PATH/"gpt2-app"
