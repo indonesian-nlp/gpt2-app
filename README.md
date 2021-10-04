@@ -1,8 +1,8 @@
 ---
 title: Indonesian GPT-2 
 emoji: 🦀
-colorFrom: red
-colorTo: white
+colorFrom: pink
+colorTo: yellow
 sdk: streamlit
 app_file: app/app.py
 pinned: false
