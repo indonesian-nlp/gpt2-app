@@ -16,5 +16,21 @@ PROMPT_LIST = {
             "Malam ini langitku lengang\ntiada hujan yang membasuh rindu\npun awan yang biasanya temani seruput kopimu",
             "Di sisimu waktu menjelma\nsetangkai kembang api\ngelora membakar tanpa jeda\nmemercik pijar binar kita."
         ]
-    }
+    },
+    "Indonesian Journal": {
+        "Biologi (biology)": [
+            "Tujuan  penelitian ini untuk menentukan keanekaragaman Arthropoda pada lahan pertanian kacang",
+            "Identifikasi spesies secara molekuler sangat diperlukan dalam mempelajari taksonomi",
+            "Penelitian ini bertujuan untuk menentukan identitas invertebrata laut dari Perairan Papua dengan teknik DNA barcoding"],
+        "Psikologi (psychology)": [
+            "Penelitian ini bertujuan untuk mengetahui perilaku wirausaha remaja yang diprediksi dari motivasi intrinsik",
+            "Tujuan dari penelitian ini adalah untuk mendapatkan data empiris mengenai gambaran peta bakat mahasiswa Fakultas Psikologi Unjani"],
+        "Ekonomi (economics)": [
+            "Faktor kepuasan dan kepercayaan konsumen merupakan dua faktor kunci dalam meningkatkan penetrasi e-commerce. Penelitian yang dilakukan",
+            "Penelitian ini bertujuan untuk menganalisis pola konsumsi pangan di Indonesia",
+            "Model GTAP diimplementasikan untuk melihat dampak yang ditimbulkan pada PDB"],
+        "Teknologi Informasi (IT)": [
+            "pembuatan aplikasi ini menggunakan pengembangan metode Waterfall dan dirancang mengguynakan Unified Modeling Language (UML) dengan bahasa pemrograman",
+            "Berdasarkan masalah tersebut, maka penulis termotivasi untuk membangun Pengembangan Sistem Informasi Manajemen"]
+    },
 }

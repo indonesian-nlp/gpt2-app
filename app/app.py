@@ -14,15 +14,27 @@ import pathlib
 
 MODELS = {
     "Indonesian Literature - GPT-2 Small": {
+        "group": "Indonesian Literature",
         "name": "cahya/gpt2-small-indonesian-story",
+        "description": "Indonesian Literature Generator using fine-tuned small GPT-2 model",
         "text_generator": None
     },
     "Indonesian Literature - GPT-2 Medium": {
+        "group": "Indonesian Literature",
         "name": "cahya/gpt2-medium-indonesian-story",
+        "description": "Indonesian Literature Generator using fine-tuned medium GPT-2 model",
         "text_generator": None
     },
-    "Indonesian Persona Chatbot": {
-        "name": "",
+    "Indonesian Academic Journal - GPT-2 Small": {
+        "group": "Indonesian Journal",
+        "name": "Galuh/id-journal-gpt2",
+        "description": "Indonesian Journal Generator using fine-tuned small GPT-2 model",
+        "text_generator": None
+    },
+    "Indonesian Persona Chatbot - GPT-2 Small": {
+        "group": "Indonesian Persona Chatbot",
+        "name": "cahya/gpt2-small-indonesian-personachat",
+        "description": "Indonesian Persona Chatbot using fine-tuned small GPT-2 model",
         "text_generator": None
     },
 }
@@ -64,15 +76,13 @@ def process(text_generator, text: str, max_length: int = 100, do_sample: bool = 
 
 
 st.title("Indonesian GPT-2 Applications")
-prompt_group_name = ""
-if model.find("Indonesian Literature") != -1:
-    st.subheader("Indonesian Literature")
-    prompt_group_name = "Indonesian Literature"
-    st.markdown(
-        """
-        This application is a demo for Indonesian Literature Generator using GPT2.
-        """
-    )
+prompt_group_name = MODELS[model]["group"]
+st.subheader(prompt_group_name)
+description = f"This application is a demo for {MODELS[model]['description']}"
+st.markdown(description)
+model_name = f"Model name: [{MODELS[model]['name']}](https://huggingface.co/{MODELS[model]['name']})"
+st.markdown(model_name)
+if prompt_group_name in ["Indonesian Literature", "Indonesian Journal"]:
     session_state = SessionState.get(prompt=None, prompt_box=None, text=None)
     ALL_PROMPTS = list(PROMPT_LIST[prompt_group_name].keys())+["Custom"]
 
@@ -138,7 +148,7 @@ if model.find("Indonesian Literature") != -1:
     )
 
     for group_name in MODELS:
-        if group_name.find("Indonesian Literature") != -1:
+        if MODELS[group_name]["group"] in ["Indonesian Literature", "Indonesian Journal"]:
             MODELS[group_name]["text_generator"] = get_generator(MODELS[group_name]["name"])
     # text_generator = get_generator()
     if st.button("Run"):
@@ -168,12 +178,6 @@ if model.find("Indonesian Literature") != -1:
             session_state.prompt = None
             session_state.prompt_box = None
             session_state.text = None
-elif model == "Indonesian Persona Chatbot":
-    st.subheader("Indonesian GPT-2 Persona Chatbot")
-    st.markdown(
-        """
-        This is a Persona Chatbot using Indonesian GPT2.
-        """
-    )
+elif model.startswith("Indonesian Persona Chatbot"):
     root_dir = pathlib.Path(".")
     stc_chatbot(root_dir)
