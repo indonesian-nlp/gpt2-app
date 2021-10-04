@@ -8,7 +8,6 @@ from transformers import pipeline, set_seed
 import psutil
 import codecs
 import streamlit.components.v1 as stc
-import shutil
 import pathlib
 
 # st.set_page_config(page_title="Indonesian Story Generator")
@@ -29,10 +28,17 @@ MODELS = {
 }
 
 
-def stc_chatbot(html_file, width=700, height=900):
-    html = codecs.open(html_file, "r")
-    page = html.read()
-    stc.html(page, width=width, height=height, scrolling=True)
+def stc_chatbot(root_dir, width=700, height=900):
+    html_file = root_dir/"app/chatbot.html"
+    css_file = root_dir/"app/css/main.css"
+    js_file = root_dir/"app/js/main.js"
+    if css_file.exists() and js_file.exists():
+        html = codecs.open(html_file, "r").read()
+        css = codecs.open(css_file, "r").read()
+        js = codecs.open(js_file, "r").read()
+        html = html.replace('<link rel="stylesheet" href="css/main.css">', "<style>\n" + css + "\n</style>")
+        html = html.replace('<script src="js/main.js"></script>', "<script>\n" + js + "\n</script>")
+        stc.html(html, width=width, height=height, scrolling=True)
 
 
 model = st.sidebar.selectbox('Model', (MODELS.keys()))
@@ -164,14 +170,5 @@ if model.find("Indonesian Literature") != -1:
             session_state.text = None
 elif model == "Indonesian Persona Chatbot":
     st.subheader("Indonesian GPT-2 Persona Chatbot")
-    STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / 'static'
-    st.write(STREAMLIT_STATIC_PATH)
-    # We create a videos directory within the streamlit static asset directory
-    # and we write output files to it
-    ASSETS_PATH = STREAMLIT_STATIC_PATH/"gpt2-app"
-    if not ASSETS_PATH.is_dir():
-        ASSETS_PATH.mkdir()
-        shutil.copytree("app/css", ASSETS_PATH/"css")
-        shutil.copytree("app/js", ASSETS_PATH/"js")
-
-    stc_chatbot("app/chatbot.html")
+    root_dir = pathlib.Path(".")
+    stc_chatbot(root_dir)
