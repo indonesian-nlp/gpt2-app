@@ -10,7 +10,7 @@ import codecs
 import streamlit.components.v1 as stc
 import pathlib
 
-# st.set_page_config(page_title="Indonesian Story Generator")
+# st.set_page_config(page_title="Indonesian GPT-2")
 
 MODELS = {
     "Indonesian Literature - GPT-2 Small": {
@@ -170,5 +170,10 @@ if model.find("Indonesian Literature") != -1:
             session_state.text = None
 elif model == "Indonesian Persona Chatbot":
     st.subheader("Indonesian GPT-2 Persona Chatbot")
+    st.markdown(
+        """
+        This is a Persona Chatbot using Indonesian GPT2.
+        """
+    )
     root_dir = pathlib.Path(".")
     stc_chatbot(root_dir)
