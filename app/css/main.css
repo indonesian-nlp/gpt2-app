@@ -1,0 +1,109 @@
+body {
+    font-family: "Arial, Courier New", sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin: 10px 10px;
+}
+
+.buttons {
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.button, .value {
+    line-height: 1;
+    padding: 1rem;
+    margin: 1rem;
+    border: medium solid;
+    min-height: 1em;
+    min-width: 1em;
+}
+
+.button {
+    cursor: pointer;
+    user-select: none;
+}
+
+.minus {
+    color: red;
+}
+
+.plus {
+    color: green;
+}
+
+.value {
+    min-width: 2em;
+}
+
+.state {
+    font-size: 2em;
+}
+
+.container {
+    min-width: 30em;
+    max-width: 40em;
+}
+
+.accordion-collapse {
+    padding: 5px 5px 0 5px;
+}
+
+.chat-container {
+    margin: 10px 0;
+    min-height: 300px;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.bot-personality {
+    text-align: left;
+    margin: 0 0 5px 0;
+}
+
+.chat-parameter {
+    text-align: left;
+    margin: 5px 0 5px 0;
+}
+
+.bot-personality input {
+    margin: 5px 0 0 0;
+    min-width: 20em;
+}
+
+.message {
+    margin: 5px 0;
+}
+
+.message-inner {
+    font-size: 16px;
+}
+
+.outgoing {
+    text-align: right;
+}
+
+.outgoing .badge {
+    text-align: right;
+}
+
+.botPersonality, .incoming, .incoming .badge, .chat-suggestion, .server-message, .parameters {
+    text-align: left;
+}
+
+.chat-suggestion, .server-message
+{
+    padding-left: 5px;
+}
+
+.server-message-value {
+    font-style: italic;
+}
+
+#collapseParameter {
+    width: 300px;
+    margin: 8px 0px;
+}
