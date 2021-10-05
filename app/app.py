@@ -66,25 +66,32 @@ def stc_chatbot(root_dir, width=700, height=900):
 
 st.sidebar.markdown("""
 <style>
-.aligncenter {
+p {
     text-align: center;
 }
 </style>
-<p class="aligncenter">
+<p>
     <img src="https://huggingface.co/spaces/flax-community/gpt2-indonesian/resolve/main/huggingwayang.png"/>
 </p>
 """, unsafe_allow_html=True)
 st.sidebar.markdown("""
 ___
-<p style='text-align: center'>
-This is a collection of Applications that generates sentences using Indonesian GPT-2 models!
+<style>
+p {
+    text-align: center;
+}
+</style>
+<p>
+This is a collection of applications that generates sentences using Indonesian GPT-2 models!
 </p>
-<p style='text-align: center'>
+<p>
 Created by <a href="https://huggingface.co/indonesian-nlp">Indonesian NLP</a> team @2021
 <br/>
 <a href="https://github.com/indonesian-nlp/gpt2-app" target="_blank">GitHub</a> | <a href="https://github.com/indonesian-nlp/gpt2-app" target="_blank">Project Report</a>
+<br/>
+A mirror is available at <a href="https://gpt2-app.ai-research.id/" target="_blank">ai-research.id</a>
 </p>
-        """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("""
 ___
