@@ -1,4 +1,25 @@
 PROMPT_LIST = {
+    "Indonesian GPT-2": {
+        "Resep masakan (recipe)": [
+            "Berikut adalah cara memasak sate ayam:\n",
+            "Langkah-langkah membuat nasi goreng:\n",
+            "Berikut adalah bahan-bahan membuat nastar:\n"
+        ],
+        "Puisi (poetry)": [
+            "Aku ingin jadi merpati\nTerbang di langit yang damai\nBernyanyi-nyanyi tentang masa depan\n",
+            "Terdiam aku satu persatu dengan tatapan binar\nSenyawa merasuk dalam sukma membuat lara\nKefanaan membentuk kelemahan"
+        ],
+        "Cerpen (short story)": [
+            "Putri memakai sepatunya dengan malas. Kalau bisa, selama seminggu ini ia bolos sekolah saja. Namun, Mama pasti akan marah. Ulangan tengah semester telah selesai. Minggu ini, di sekolah sedang berlangsung pekan olahraga.",
+            "\"Wah, hari ini cerah sekali ya,\" ucap Budi ketika ia keluar rumah.",
+            "Sewindu sudah kita tak berjumpa, rinduku padamu sudah tak terkira."
+        ],
+        "Sejarah (history)": [
+            "Mohammad Natsir adalah seorang ulama, politisi, dan pejuang kemerdekaan Indonesia.",
+            "Ir. H. Soekarno adalah Presiden pertama Republik Indonesia. Ia adalah seorang tokoh perjuangan yang memainkan peranan penting dalam memerdekakan bangsa Indonesia",
+            "Borobudur adalah sebuah candi Buddha yang terletak di sebelah barat laut Yogyakarta. Monumen ini merupakan model alam semesta dan dibangun sebagai tempat suci untuk memuliakan Buddha"
+        ],
+    },
     "Indonesian Literature": {
         "Adult Romance": [
             "Ini adalah kisah tentang seorang laki-laki yang berusaha memperjuangkan cintanya",

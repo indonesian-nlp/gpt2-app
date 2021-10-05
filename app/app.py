@@ -13,28 +13,40 @@ import pathlib
 # st.set_page_config(page_title="Indonesian GPT-2")
 
 MODELS = {
+    "Indonesian GPT-2 Small": {
+        "group": "Indonesian GPT-2",
+        "name": "flax-community/gpt2-small-indonesian",
+        "description": "The original Indonesian small GPT-2 model.",
+        "text_generator": None
+    },
+    "Indonesian GPT-2 Medium": {
+        "group": "Indonesian GPT-2",
+        "name": "flax-community/gpt2-medium-indonesian",
+        "description": "The original Indonesian medium GPT-2 model.",
+        "text_generator": None
+    },
     "Indonesian Literature - GPT-2 Small": {
         "group": "Indonesian Literature",
         "name": "cahya/gpt2-small-indonesian-story",
-        "description": "Indonesian Literature Generator using fine-tuned small GPT-2 model",
+        "description": "The Indonesian Literature Generator using fine-tuned small GPT-2 model.",
         "text_generator": None
     },
     "Indonesian Literature - GPT-2 Medium": {
         "group": "Indonesian Literature",
         "name": "cahya/gpt2-medium-indonesian-story",
-        "description": "Indonesian Literature Generator using fine-tuned medium GPT-2 model",
+        "description": "The Indonesian Literature Generator using fine-tuned medium GPT-2 model.",
         "text_generator": None
     },
     "Indonesian Academic Journal - GPT-2 Small": {
         "group": "Indonesian Journal",
         "name": "Galuh/id-journal-gpt2",
-        "description": "Indonesian Journal Generator using fine-tuned small GPT-2 model",
+        "description": "The Indonesian Journal Generator using fine-tuned small GPT-2 model.",
         "text_generator": None
     },
     "Indonesian Persona Chatbot - GPT-2 Small": {
         "group": "Indonesian Persona Chatbot",
         "name": "cahya/gpt2-small-indonesian-personachat",
-        "description": "Indonesian Persona Chatbot using fine-tuned small GPT-2 model",
+        "description": "The Indonesian Persona Chatbot using fine-tuned small GPT-2 model.",
         "text_generator": None
     },
 }
@@ -52,6 +64,31 @@ def stc_chatbot(root_dir, width=700, height=900):
         html = html.replace('<script src="js/main.js"></script>', "<script>\n" + js + "\n</script>")
         stc.html(html, width=width, height=height, scrolling=True)
 
+st.sidebar.markdown("""
+<style>
+.aligncenter {
+    text-align: center;
+}
+</style>
+<p class="aligncenter">
+    <img src="https://huggingface.co/spaces/flax-community/gpt2-indonesian/resolve/main/huggingwayang.png"/>
+</p>
+""", unsafe_allow_html=True)
+st.sidebar.markdown("""
+___
+<p style='text-align: center'>
+This is a collection of Applications that generates sentences using Indonesian GPT-2 models!
+</p>
+<p style='text-align: center'>
+Created by <a href="https://huggingface.co/indonesian-nlp">Indonesian NLP</a> team @2021
+<br/>
+<a href="https://github.com/indonesian-nlp/gpt2-app" target="_blank">GitHub</a> | <a href="https://github.com/indonesian-nlp/gpt2-app" target="_blank">Project Report</a>
+</p>
+        """, unsafe_allow_html=True)
+
+st.sidebar.markdown("""
+___
+        """, unsafe_allow_html=True)
 
 model = st.sidebar.selectbox('Model', (MODELS.keys()))
 
@@ -77,12 +114,12 @@ def process(text_generator, text: str, max_length: int = 100, do_sample: bool = 
 
 st.title("Indonesian GPT-2 Applications")
 prompt_group_name = MODELS[model]["group"]
-st.subheader(prompt_group_name)
+st.header(prompt_group_name)
 description = f"This application is a demo for {MODELS[model]['description']}"
 st.markdown(description)
 model_name = f"Model name: [{MODELS[model]['name']}](https://huggingface.co/{MODELS[model]['name']})"
 st.markdown(model_name)
-if prompt_group_name in ["Indonesian Literature", "Indonesian Journal"]:
+if prompt_group_name in ["Indonesian GPT-2", "Indonesian Literature", "Indonesian Journal"]:
     session_state = SessionState.get(prompt=None, prompt_box=None, text=None)
     ALL_PROMPTS = list(PROMPT_LIST[prompt_group_name].keys())+["Custom"]
 
@@ -128,17 +165,20 @@ if prompt_group_name in ["Indonesian Literature", "Indonesian Journal"]:
         value=True
     )
 
-    top_k = 40
+    top_k = 30
     top_p = 0.95
 
     if do_sample:
         top_k = st.sidebar.number_input(
             "Top k",
-            value=top_k
+            value=top_k,
+            help="The number of highest probability vocabulary tokens to keep for top-k-filtering."
         )
         top_p = st.sidebar.number_input(
             "Top p",
-            value=top_p
+            value=top_p,
+            help="If set to float < 1, only the most probable tokens with probabilities that add up to top_p or higher "
+                 "are kept for generation."
         )
 
     seed = st.sidebar.number_input(
@@ -148,7 +188,7 @@ if prompt_group_name in ["Indonesian Literature", "Indonesian Journal"]:
     )
 
     for group_name in MODELS:
-        if MODELS[group_name]["group"] in ["Indonesian Literature", "Indonesian Journal"]:
+        if MODELS[group_name]["group"] in ["Indonesian GPT-2", "Indonesian Literature", "Indonesian Journal"]:
             MODELS[group_name]["text_generator"] = get_generator(MODELS[group_name]["name"])
     # text_generator = get_generator()
     if st.button("Run"):
