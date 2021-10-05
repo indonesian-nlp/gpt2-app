@@ -8,26 +8,42 @@ app_file: app/app.py
 pinned: false
 ---
 
-# Configuration
+# Indonesian GPT-2 Applications
+This is a collection of Applications that generates sentences using Indonesian GPT-2 models!
 
-`title`: _string_  
-Display title for the Space
 
-`emoji`: _string_  
-Space emoji (emoji-only character allowed)
+## How did we create it
 
-`colorFrom`: _string_  
-Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray)
+## Development
 
-`colorTo`: _string_  
-Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray)
+### Dependencies Installation
 
-`sdk`: _string_  
-Can be either `gradio` or `streamlit`
+### Inference Pipeline
 
-`app_file`: _string_  
-Path to your main application file (which contains either `gradio` or `streamlit` Python code).  
-Path is relative to the root of the repository.
+## Authors
 
-`pinned`: _boolean_  
-Whether the Space stays on top of your list.
+- [Akmal](https://github.com/Wikidepia)
+- [Alvin Watner](https://github.com/alvinwatner)
+- [Cahya Wirawan](https://github.com/cahya-wirawan)
+- [Galuh Sahid](https://github.com/galuhsahid)
+- [Muhammad Agung Hambali](https://github.com/magungh1)
+- [Samsul Rahmadani](https://github.com/acul3)
+
+## Acknowledgements
+
+- 🤗 Hugging Face for organizing [the FLAX/JAX community week](https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects)
+- Google [TPU Research Cloud (TRC) program](https://sites.research.google/trc/) for providing computing resources
+- [Weights & Biases](https://wandb.com/) for providing the infrastructure for experiment tracking and model management
+
+## Citing Indonesian GPT-2 Applications
+
+If you find this is useful in your research or wish to refer, please use the following BibTeX entry.
+
+```
+@misc{Dayma_DALL·E_Mini_2021,
+author = {Akmal, Alvin Watner, Cahya Wirawan, Galuh Sahid, Muhammad Agung Hambali, Samsul Rahmadani},
+title = {Indonesian GPT-2 Applications},
+url = {https://github.com/indonesian-nlp/gpt2-app},
+year = {2021}
+}
+```

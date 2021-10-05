@@ -16,37 +16,37 @@ MODELS = {
     "Indonesian GPT-2 Small": {
         "group": "Indonesian GPT-2",
         "name": "flax-community/gpt2-small-indonesian",
-        "description": "The original Indonesian small GPT-2 model.",
+        "description": "The original Indonesian GPT-2 small model.",
         "text_generator": None
     },
     "Indonesian GPT-2 Medium": {
         "group": "Indonesian GPT-2",
         "name": "flax-community/gpt2-medium-indonesian",
-        "description": "The original Indonesian medium GPT-2 model.",
+        "description": "The original Indonesian GPT-2 medium model.",
         "text_generator": None
     },
     "Indonesian Literature - GPT-2 Small": {
         "group": "Indonesian Literature",
         "name": "cahya/gpt2-small-indonesian-story",
-        "description": "The Indonesian Literature Generator using fine-tuned small GPT-2 model.",
+        "description": "The Indonesian Literature Generator using fine-tuned GPT-2 small model.",
         "text_generator": None
     },
     "Indonesian Literature - GPT-2 Medium": {
         "group": "Indonesian Literature",
         "name": "cahya/gpt2-medium-indonesian-story",
-        "description": "The Indonesian Literature Generator using fine-tuned medium GPT-2 model.",
+        "description": "The Indonesian Literature Generator using fine-tuned GPT-2 medium model.",
         "text_generator": None
     },
     "Indonesian Academic Journal - GPT-2 Small": {
         "group": "Indonesian Journal",
         "name": "Galuh/id-journal-gpt2",
-        "description": "The Indonesian Journal Generator using fine-tuned small GPT-2 model.",
+        "description": "The Indonesian Journal Generator using fine-tuned GPT-2 small model.",
         "text_generator": None
     },
     "Indonesian Persona Chatbot - GPT-2 Small": {
         "group": "Indonesian Persona Chatbot",
         "name": "cahya/gpt2-small-indonesian-personachat",
-        "description": "The Indonesian Persona Chatbot using fine-tuned small GPT-2 model.",
+        "description": "The Indonesian Persona Chatbot using fine-tuned GPT-2 small model.",
         "text_generator": None
     },
 }
