@@ -40,7 +40,7 @@ This is a collection of Applications that generates sentences using Indonesian G
 If you find this is useful in your research or wish to refer, please use the following BibTeX entry.
 
 ```
-@misc{Dayma_DALL·E_Mini_2021,
+@misc{Indonesian_GPT2_App_2021,
 author = {Akmal, Alvin Watner, Cahya Wirawan, Galuh Sahid, Muhammad Agung Hambali, Samsul Rahmadani},
 title = {Indonesian GPT-2 Applications},
 url = {https://github.com/indonesian-nlp/gpt2-app},
