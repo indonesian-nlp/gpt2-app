@@ -157,9 +157,9 @@ if prompt_group_name in ["Indonesian GPT-2", "Indonesian Literature", "Indonesia
 
     temperature = st.sidebar.slider(
         "Temperature",
-        value=1.0,
+        value=0.9,
         min_value=0.0,
-        max_value=10.0
+        max_value=5.0
     )
 
     do_sample = st.sidebar.checkbox(
