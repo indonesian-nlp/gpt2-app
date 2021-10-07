@@ -110,12 +110,16 @@ def get_generator(model_name: str):
 # Disable the st.cache for this function due to issue on newer version of streamlit
 # @st.cache(suppress_st_warning=True, hash_funcs={tokenizers.Tokenizer: id})
 def process(text_generator, text: str, max_length: int = 100, do_sample: bool = True, top_k: int = 50, top_p: float = 0.95,
-            temperature: float = 1.0, max_time: float = 120.0, seed=42):
+            temperature: float = 1.0, max_time: float = 120.0, seed=42, repetition_penalty=1.0):
     # st.write("Cache miss: process")
     set_seed(seed)
+    if repetition_penalty == 0.0:
+        min_penalty = 1.05
+        max_penalty = 1.5
+        repetition_penalty = max(min_penalty + (1.0-temperature) * (max_penalty-min_penalty), 0.8)
     result = text_generator(text, max_length=max_length, do_sample=do_sample,
                             top_k=top_k, top_p=top_p, temperature=temperature,
-                            max_time=max_time)
+                            max_time=max_time, repetition_penalty=repetition_penalty)
     return result
 
 
@@ -164,7 +168,7 @@ if prompt_group_name in ["Indonesian GPT-2", "Indonesian Literature", "Indonesia
         "Temperature",
         value=0.9,
         min_value=0.0,
-        max_value=5.0
+        max_value=2.0
     )
 
     do_sample = st.sidebar.checkbox(
@@ -194,6 +198,20 @@ if prompt_group_name in ["Indonesian GPT-2", "Indonesian Literature", "Indonesia
         help="The number used to initialize a pseudorandom number generator"
     )
 
+    repetition_penalty = 0.0
+    automatic_repetition_penalty = st.sidebar.checkbox(
+        "Automatic Repetition Penalty",
+        value=True
+    )
+
+    if not automatic_repetition_penalty:
+        repetition_penalty = st.sidebar.slider(
+            "Repetition Penalty",
+            value=1.0,
+            min_value=1.0,
+            max_value=2.0
+        )
+
     for group_name in MODELS:
         if MODELS[group_name]["group"] in ["Indonesian GPT-2", "Indonesian Literature", "Indonesian Journal"]:
             MODELS[group_name]["text_generator"] = get_generator(MODELS[group_name]["name"])
@@ -206,7 +224,7 @@ if prompt_group_name in ["Indonesian GPT-2", "Indonesian Literature", "Indonesia
             # text_generator = MODELS[model]["text_generator"]
             result = process(MODELS[model]["text_generator"], text=session_state.text, max_length=int(max_length),
                              temperature=temperature, do_sample=do_sample,
-                             top_k=int(top_k), top_p=float(top_p), seed=seed)
+                             top_k=int(top_k), top_p=float(top_p), seed=seed, repetition_penalty=repetition_penalty)
             time_end = time.time()
             time_diff = time_end-time_start
             result = result[0]["generated_text"]
