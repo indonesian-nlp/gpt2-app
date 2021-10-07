@@ -9,8 +9,13 @@ import psutil
 import codecs
 import streamlit.components.v1 as stc
 import pathlib
+import os
 
 # st.set_page_config(page_title="Indonesian GPT-2")
+
+mirror_url = "https://gpt2-app.ai-research.id/"
+if "MIRROR_URL" in os.environ:
+    mirror_url = os.environ["MIRROR_URL"]
 
 MODELS = {
     "Indonesian GPT-2 Small": {
@@ -74,7 +79,7 @@ st.sidebar.markdown("""
     <img src="https://huggingface.co/spaces/flax-community/gpt2-indonesian/resolve/main/huggingwayang.png"/>
 </p>
 """, unsafe_allow_html=True)
-st.sidebar.markdown("""
+st.sidebar.markdown(f"""
 ___
 <p class="centeralign">
 This is a collection of applications that generates sentences using Indonesian GPT-2 models!
@@ -84,7 +89,7 @@ Created by <a href="https://huggingface.co/indonesian-nlp">Indonesian NLP</a> te
 <br/>
 <a href="https://github.com/indonesian-nlp/gpt2-app" target="_blank">GitHub</a> | <a href="https://github.com/indonesian-nlp/gpt2-app" target="_blank">Project Report</a>
 <br/>
-A mirror is available at <a href="https://gpt2-app.ai-research.id/" target="_blank">ai-research.id</a>
+A mirror of the application is available <a href="{mirror_url}" target="_blank">here</a>
 </p>
 """, unsafe_allow_html=True)
 
