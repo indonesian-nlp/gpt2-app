@@ -148,7 +148,7 @@ if prompt_group_name in ["Indonesian GPT-2", "Indonesian Literature", "Indonesia
 
     # Update prompt box
     if session_state.prompt == "Custom":
-        session_state.prompt_box = "Enter your text here"
+        session_state.prompt_box = ""
     else:
         print(f"# prompt: {session_state.prompt}")
         print(f"# prompt_box: {session_state.prompt_box}")
