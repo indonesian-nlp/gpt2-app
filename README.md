@@ -22,6 +22,7 @@ This is a collection of Applications that generates sentences using Indonesian G
 
 ## Authors
 
+Following are the authors of this work (listed alphabetically):
 - [Akmal](https://github.com/Wikidepia)
 - [Alvin Watner](https://github.com/alvinwatner)
 - [Cahya Wirawan](https://github.com/cahya-wirawan)
