@@ -16,7 +16,7 @@ result:
 'Mary'
 """
 from streamlit.scriptrunner import get_script_run_ctx
-from streamlit.server.Server import Server
+from streamlit.server.server import Server
 
 
 class SessionState(object):
