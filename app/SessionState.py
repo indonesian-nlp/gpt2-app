@@ -15,7 +15,7 @@ result:
 >>> session_state.user_name
 'Mary'
 """
-from streamlit.script_run_context import get_script_run_ctx
+from streamlit.scriptrunner import get_script_run_ctx
 from streamlit.server.Server import Server
 
 
