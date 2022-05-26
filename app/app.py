@@ -54,6 +54,12 @@ MODELS = {
         "description": "The Indonesian Persona Chatbot using fine-tuned GPT-2 small model.",
         "text_generator": None
     },
+    "Multilingual mGPT": {
+        "group": "Indonesian GPT-2",
+        "name": "sberbank-ai/mGPT",
+        "description": "Multilingual GPT model, autoregressive GPT-like models with 1.3 billion parameters.",
+        "text_generator": None
+    },
 }
 
 
