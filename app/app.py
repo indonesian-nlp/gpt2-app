@@ -20,13 +20,13 @@ if "MIRROR_URL" in os.environ:
 MODELS = {
     "Indonesian GPT-2 Small": {
         "group": "Indonesian GPT-2",
-        "name": "flax-community/gpt2-small-indonesian",
+        "name": "indonesian-nlp/gpt2",
         "description": "The original Indonesian GPT-2 small model.",
         "text_generator": None
     },
     "Indonesian GPT-2 Medium": {
         "group": "Indonesian GPT-2",
-        "name": "flax-community/gpt2-medium-indonesian",
+        "name": "indonesian-nlp/gpt2-medium-indonesian",
         "description": "The original Indonesian GPT-2 medium model.",
         "text_generator": None
     },
